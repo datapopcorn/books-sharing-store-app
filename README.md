@@ -1,18 +1,18 @@
 # books-sharing-store-app
 An online bookstore which users can buy books and share books others.
 
-#Infra
+## Infra
 flask for api
 postgres for database
 SQLAlchemy for orm
 pydantic for schema 
 
-#Function
+## Function
 Registration
 Buying/Selling
 Lending/Borrowing
 
-#DB
+## DB
 User
 Item
 Trade
