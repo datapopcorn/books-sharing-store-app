@@ -2,17 +2,17 @@
 An online bookstore which users can buy books and share books others.
 
 ## Infra
-flask for api
-postgres for database
-SQLAlchemy for orm
-pydantic for schema 
+flask for api <br>
+postgres for database <br>
+SQLAlchemy for orm <br>
+pydantic for schema <br>
 
 ## Function
-Registration
-Buying/Selling
-Lending/Borrowing
+Registration <br>
+Buying/Selling <br>
+Lending/Borrowing <br>
 
 ## DB
-User
-Item
-Trade
+User <br>
+Item <br>
+Trade <br>
