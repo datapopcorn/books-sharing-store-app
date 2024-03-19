@@ -1,0 +1,31 @@
+version: "3"
+
+services:
+  flask_app:
+    container_name: flask_app
+    build: ./flask
+    expose:
+      - 8080
+    depends_on:
+      - flask_db
+
+  flask_db:
+    image: postgres:latest
+    container_name: flask_postgres
+    volumes:
+      - ${POSTGRES_HOST_DIR}:/var/lib/postgresql/data
+    ports:
+      - ${POSTGRES_PORT}:5432
+    environment:
+      - POSTGRES_DB=${POSTGRES_DB}
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+
+  flask_nginx:
+    container_name: flask_nginx
+    build: ./nginx
+    ports:
+      - 80:80
+      - 443:443
+    depends_on:
+      - flask_app
