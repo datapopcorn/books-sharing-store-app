@@ -10,14 +10,20 @@ from models.loginlog import LoginLog
 from models.purchaselog import PurchaseLog
 from models.returnlog import ReturnLog
 from models.sharelog import ShareLog
-
+from dotenv import load_dotenv
+import os
 
 base_url = 'booksharingstore'
 
+# 載入 .env 檔案
+load_dotenv()
+
+DB_URI = os.getenv('DB_URI')
 
 def create_app():
     app = Flask(__name__)
-    app.config['SQLALCHEMY_DATABASE_URI'] = "postgresql://postgres:postgres@flask_db:5432/flaskdb"
+    app.config['SQLALCHEMY_DATABASE_URI'] = DB_URI
+    app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
     db.init_app(app)
     migrate = Migrate(app, db)
 
